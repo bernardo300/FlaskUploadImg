@@ -1,1 +1,2 @@
-static/img/.*
+static/img/*
+!static/img/download.jpeg
