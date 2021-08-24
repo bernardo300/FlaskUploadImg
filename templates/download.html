@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Flask-Reuploaded Example</title>
+</head>
+<body>
+    {% for arquivo in arquivos %}
+        <div> 
+            {{ arquivo }} 
+            <a href="files/{{ arquivo }}"> Baixar </a>
+        </div>
+        
+    {% endfor %}
+
+</body>
+</html>

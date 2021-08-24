@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Flask-Reuploaded Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <br/>
+<div class="container text-center">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class=flashes>
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+ 
+    <input type=file name=photo>
+    <input type="submit" class="btn btn-success">
+ 
+</form>
+<br/>
+<div class="text-center">
+    <img src="{{ url_for('send_uploaded_file', filename=uploaded_image)}}"class="rounded" alt="..."
+    width="400px">
+</div>
+ 
+</div>
+</body>
+</html>
