@@ -20,7 +20,7 @@ configure_uploads(app, photos)
 def upload():
     if request.method == 'POST' and 'photo' in request.files:
         image = request.files['photo']
-        photos.save(image)
+        #photos.save(image)
         img = Image.open(image)
         numpy_image = np.array(img)
 
@@ -28,7 +28,7 @@ def upload():
         pencilDraw(opencv_image)
 
         flash("Photo saved successfully.")
-        return render_template('upload.html', uploaded_image=image.filename)
+        return render_template('upload.html', uploaded_image='draw.png')
     return render_template('upload.html')
 
 
@@ -59,7 +59,7 @@ def pencilDraw(img):
     img_gray_inv = 255 - img_gray
     img_blur = cv2.GaussianBlur(img_gray_inv, (21, 21), 0, 0)
     img_blend = cv2.divide(img_gray, 255 - img_blur, scale=256)
-    cv2.imwrite('draw.png', img_blend)
+    cv2.imwrite('static/img/draw.png', img_blend)
 
 
 if __name__ == '__main__':
