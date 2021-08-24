@@ -20,7 +20,7 @@ configure_uploads(app, photos)
 def upload():
     if request.method == 'POST' and 'photo' in request.files:
         image = request.files['photo']
-        #photos.save(image)
+        # photos.save(image)
         img = Image.open(image)
         numpy_image = np.array(img)
 

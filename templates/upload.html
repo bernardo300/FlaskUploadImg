@@ -20,16 +20,17 @@
     {% endwith %}
 
     <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
- 
-    <input type=file name=photo>
-    <input type="submit" class="btn btn-success">
- 
-</form>
+        <input type=file name=photo>
+        <input type="submit" class="btn btn-success" value="Processar">
+    </form>
 <br/>
-<div class="text-center">
-    <img src="{{ url_for('send_uploaded_file', filename=uploaded_image)}}"class="rounded" alt="..."
-    width="400px">
-</div>
+    <div class="text-center">
+        <img src="{{ url_for('send_uploaded_file', filename=uploaded_image)}}"class="rounded" alt="..."
+        width="400px">
+        <br/>
+        <br/>
+        <a href="files/draw.png" class="btn btn-primary"> Baixar </a>
+    </div>
  
 </div>
 </body>
